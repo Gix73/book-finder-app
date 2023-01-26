@@ -1,0 +1,23 @@
+.content_wrapper {
+  display: block;
+  position: relative;
+  margin: 20px;
+  width: 200px;
+}
+
+.img_wrapper {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  background-image: url("../../../images/book.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+}
+
+.text {
+  display: block;
+  width: 200px;
+  padding-top: 10px;
+}
