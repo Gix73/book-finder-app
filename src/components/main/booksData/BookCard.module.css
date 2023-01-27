@@ -21,3 +21,7 @@
   width: 200px;
   padding-top: 10px;
 }
+
+.hover_link:hover {
+  background-color: #1f9a8e26;
+}
