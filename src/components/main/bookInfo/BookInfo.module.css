@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+}
+.img_wrapper {
+  display: flex;
+  position: relative;
+  background-color: rgba(128, 128, 128, 0.571);
+  max-width: 500px;
+  width: 100%;
+  height: 600px;
+  padding: 60px 100px;
+}
+.img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../images/book.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+}
+.info_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 600px;
+  width: 100%;
+  gap: 20px;
+}
+.text_wrapper {
+  display: block;
+  width: 100%;
+  border: 3px solid #ccc;
+  border-color: black;
+  padding: 20px 10px;
+}
+.textarea {
+  display: block;
+  border: none;
+  width: 100%;
+  min-height: 300px;
+  height: auto;
+  resize: none;
+}
+
+.about_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
