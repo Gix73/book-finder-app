@@ -6,7 +6,7 @@ const BookCard = (props) => {
     <>
       {props.bookItems.map((e) => {
         let imgSrc = e.volumeInfo.imageLinks.thumbnail;
-        let authors = e.volumeInfo.authors;
+        let authors = e.volumeInfo.authors.join(", ");
         let title = e.volumeInfo.title;
         let categories = e.volumeInfo.categories.join(" ");
         return (
