@@ -26,7 +26,18 @@ const BookCard = (props) => {
         }
 
         return (
-          <Link to="/bookinfo" className={s.hover_link}>
+          <Link
+            to="/bookinfo"
+            className={s.hover_link}
+            state={{
+              from: "/",
+              imgSrc: imgSrc,
+              authors: authors,
+              title: title,
+              categories: categories,
+              description: e.volumeInfo.description,
+            }}
+          >
             <div className={s.content_wrapper}>
               <div className={s.img_wrapper}>
                 <img src={imgSrc} className={imgClass} alt="book" />

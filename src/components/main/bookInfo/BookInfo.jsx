@@ -1,16 +1,22 @@
+import { useLocation } from "react-router-dom";
 import s from "./BookInfo.module.css";
 
 const BookInfo = () => {
+  let data = useLocation();
+  console.log(data);
   return (
     <div className={s.container}>
       <div className={s.img_wrapper}>
-        <div className={s.img}></div>
+        <div
+          className={s.img}
+          style={{ backgroundImage: `url(${data.state.imgSrc})` }}
+        ></div>
       </div>
       <div className={s.info_wrapper}>
         <div className={s.about_wrapper}>
-          <span>Art/ General</span>
-          <h3>J. S. Bach The Glodberg Variations in Open Score</h3>
-          <span>Kendail Durelle Briggs</span>
+          <span>{data.state.categories}</span>
+          <h3>{data.state.title}</h3>
+          <span>{data.state.authors}</span>
         </div>
         <div className={s.text_wrapper}>
           <textarea
@@ -19,10 +25,9 @@ const BookInfo = () => {
             id=""
             cols="70"
             rows="10"
+            value={data.state.description}
             readOnly={true}
-          >
-            An Open score edition of Bach's Goldberg Variations
-          </textarea>
+          ></textarea>
         </div>
       </div>
     </div>
