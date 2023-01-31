@@ -33,3 +33,6 @@
 .hover_link:hover {
   background-color: #1f9a8e26;
 }
+.hide {
+  display: none;
+}
