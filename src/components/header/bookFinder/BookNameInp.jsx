@@ -26,7 +26,7 @@ const BookNameInp = () => {
         type: "GET_BOOKS",
         payload: {
           sr: search,
-          data: [res.items],
+          data: [...res.items],
         },
       });
     }
