@@ -3,6 +3,7 @@ const initialState = {
   booksData: [],
   typeOfSort: "relevance",
   category: "all",
+  page: 1,
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -22,6 +23,24 @@ const booksReducer = (state = initialState, action) => {
       typeOfSort: action.payload.sortType
         ? action.payload.sortType
         : "relevance",
+    };
+  }
+  if (action.type === "LOAD_MORE") {
+    let newData = [];
+    newData.push(...state.booksData);
+    if (action.payload.data !== null) {
+      newData.push(...action.payload.data);
+    }
+    return {
+      ...state,
+      booksData: [...newData],
+      page: action.payload.page,
+    };
+  }
+  if (action.type === "ADD_PAGE") {
+    return {
+      ...state,
+      page: action.payload.page,
     };
   }
 
