@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import s from "./bookFinder.module.css";
 
 const BookNameInp = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
+  const sorting = useSelector((state) => state.books);
 
   async function customFetch() {
     let answ = await new Promise((resolve, reject) => {
       fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyA2lRn9zC1W83xEJLgyJUPNThneLxyGe7M`
+        `https://www.googleapis.com/books/v1/volumes?q=${search}+subject:${sorting.category}&orderBy=${sorting.typeOfSort}&key=AIzaSyA2lRn9zC1W83xEJLgyJUPNThneLxyGe7M`
       )
         .then((data) => {
           resolve(data.json());

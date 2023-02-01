@@ -1,11 +1,33 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import s from "./bookFinder.module.css";
 
 const BookSortInp = () => {
+  const dispatch = useDispatch();
+  const [category, setCategory] = useState("");
+  const [sortType, setSortType] = useState("");
+
+  function changeSort(e) {
+    dispatch({
+      type: "CHANGE_SORT",
+      payload: {
+        category: category,
+        sortType: sortType,
+      },
+    });
+  }
+
   return (
     <div className={s.sort_wrapper}>
       <div className={s.data_container}>
         <span>Categories</span>
-        <select className={s.select} name="" id="">
+        <select
+          className={s.select}
+          name=""
+          id=""
+          onMouseOut={changeSort}
+          onChange={(e) => setCategory(e.target.value)}
+        >
           <option value="all">all</option>
           <option value="art">art</option>
           <option value="biography">biography</option>
@@ -17,7 +39,13 @@ const BookSortInp = () => {
       </div>
       <div className={s.data_container}>
         <span>Sorting by</span>
-        <select className={s.select} name="" id="">
+        <select
+          className={s.select}
+          name=""
+          id=""
+          onMouseOut={changeSort}
+          onChange={(e) => setSortType(e.target.value)}
+        >
           <option value="relevance">relevance</option>
           <option value="newest">newest</option>
         </select>
