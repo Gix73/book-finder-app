@@ -12,6 +12,7 @@ const BooksPage = () => {
       <div className={s.books_wrapper}>
         <BookCard bookItems={books} />
       </div>
+      <div className={s.load_button}>Load more</div>
     </div>
   );
 };
