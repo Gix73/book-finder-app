@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import s from "./BookInfo.module.css";
 
 const BookInfo = () => {
@@ -29,6 +29,9 @@ const BookInfo = () => {
             readOnly={true}
           ></textarea>
         </div>
+        <Link to="/" className={s.hover_link}>
+          Back
+        </Link>
       </div>
     </div>
   );
