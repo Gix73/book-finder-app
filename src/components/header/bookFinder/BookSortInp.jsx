@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import s from "./bookFinder.module.css";
 
@@ -7,7 +7,7 @@ const BookSortInp = () => {
   const [category, setCategory] = useState("");
   const [sortType, setSortType] = useState("");
 
-  function changeSort(e) {
+  function changeSort() {
     dispatch({
       type: "CHANGE_SORT",
       payload: {
@@ -17,6 +17,10 @@ const BookSortInp = () => {
     });
   }
 
+  useEffect(() => {
+    changeSort();
+  });
+
   return (
     <div className={s.sort_wrapper}>
       <div className={s.data_container}>
@@ -25,7 +29,6 @@ const BookSortInp = () => {
           className={s.select}
           name=""
           id=""
-          onMouseOut={changeSort}
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="all">all</option>
@@ -43,7 +46,6 @@ const BookSortInp = () => {
           className={s.select}
           name=""
           id=""
-          onMouseOut={changeSort}
           onChange={(e) => setSortType(e.target.value)}
         >
           <option value="relevance">relevance</option>

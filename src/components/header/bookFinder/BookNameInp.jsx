@@ -8,9 +8,10 @@ const BookNameInp = () => {
   const sorting = useSelector((state) => state.books);
 
   async function customFetch() {
+    let subj = sorting.category !== "all" ? `subject:${sorting.category}` : "";
     let answ = await new Promise((resolve, reject) => {
       fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${search}+subject:${sorting.category}&orderBy=${sorting.typeOfSort}&key=AIzaSyA2lRn9zC1W83xEJLgyJUPNThneLxyGe7M`
+        `https://www.googleapis.com/books/v1/volumes?q=${search}+${subj}&orderBy=${sorting.typeOfSort}&key=AIzaSyA2lRn9zC1W83xEJLgyJUPNThneLxyGe7M`
       )
         .then((data) => {
           resolve(data.json());
