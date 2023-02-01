@@ -30,6 +30,7 @@ const BookNameInp = () => {
           sr: search,
           data: [...res.items],
           page: 1,
+          totalItems: res.totalItems,
         },
       });
     }

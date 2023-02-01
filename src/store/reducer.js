@@ -4,6 +4,7 @@ const initialState = {
   typeOfSort: "relevance",
   category: "all",
   page: 1,
+  totalItems: 0,
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -14,6 +15,7 @@ const booksReducer = (state = initialState, action) => {
       ...state,
       search: action.payload.sr,
       booksData: action.payload.data,
+      totalItems: action.payload.totalItems,
     };
   }
   if (action.type === "CHANGE_SORT") {
