@@ -29,10 +29,10 @@
 }
 
 .sort_wrapper {
-  display: flex;
+  display: grid;
   max-width: 600px;
   width: 100%;
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 span {
