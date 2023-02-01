@@ -9,12 +9,11 @@
 }
 
 .books_wrapper {
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   width: 100%;
-  flex-wrap: wrap;
   row-gap: 20px;
+  column-gap: 20px;
 }
 
 .load_button {

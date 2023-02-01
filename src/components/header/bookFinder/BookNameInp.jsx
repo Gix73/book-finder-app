@@ -22,7 +22,6 @@ const BookNameInp = () => {
   const sorting = useSelector((state) => state.books);
 
   async function searchBook(e) {
-    console.log(e);
     if (e.key === "Enter" || e.target.localName === "button") {
       let res = await customFetch(search, sorting.category, sorting.typeOfSort);
       dispatch({
