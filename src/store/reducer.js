@@ -6,6 +6,7 @@ const initialState = {
   page: 0,
   totalItems: 0,
   updateItemsCount: 30,
+  isFetching: false,
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -41,12 +42,12 @@ const booksReducer = (state = initialState, action) => {
       page: action.payload.page,
     };
   }
-  // if (action.type === "ADD_PAGE") {
-  //   return {
-  //     ...state,
-  //     page: action.payload.page,
-  //   };
-  // }
+  if (action.type === "IS_FETCHING") {
+    return {
+      ...state,
+      isFetching: action.payload.isFetching,
+    };
+  }
 
   return state;
 };

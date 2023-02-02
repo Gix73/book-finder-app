@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { customFetch } from "../header/bookFinder/BookNameInp";
 import BookCard from "./booksData/BookCard";
 import s from "./BooksPage.module.css";
+import preloader from "../../images/spinner.svg";
 
 const BooksPage = () => {
   const books = useSelector((state) => state.books.booksData);
@@ -9,14 +10,12 @@ const BooksPage = () => {
   const data = useSelector((state) => state.books);
 
   async function loadMoreBooks() {
-    // let pageNum = data.page;
-    // console.log("ADD_PAGE" + " " + pageNum);
-    // dispatch({
-    //   type: "ADD_PAGE",
-    //   payload: {
-    //     page: pageNum,
-    //   },
-    // });
+    dispatch({
+      type: "IS_FETCHING",
+      payload: {
+        isFetching: true,
+      },
+    });
 
     let fetchRes = await customFetch(
       data.search,
@@ -25,6 +24,13 @@ const BooksPage = () => {
       data.page,
       data.updateItemsCount
     );
+
+    dispatch({
+      type: "IS_FETCHING",
+      payload: {
+        isFetching: false,
+      },
+    });
 
     if (fetchRes.items !== undefined) {
       dispatch({
@@ -46,7 +52,12 @@ const BooksPage = () => {
         <BookCard bookItems={books} />
       </div>
       <div className={s.load_button} onClick={loadMoreBooks}>
-        Load more
+        {data.isFetching ? (
+          <div className={s.preloader_wrapper}>
+            <img src={preloader} className={s.preloader} alt="Preloader" />
+          </div>
+        ) : null}
+        <span>Load more</span>
       </div>
     </div>
   );

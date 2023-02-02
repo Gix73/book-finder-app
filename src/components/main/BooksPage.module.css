@@ -17,10 +17,26 @@
 }
 
 .load_button {
+  position: relative;
+  display: flex;
   margin-top: 20px;
   padding-bottom: 30px;
+  order: 2;
+  width: 100%;
+  justify-content: center;
 }
 
 .load_button:hover {
   cursor: pointer;
+}
+
+.preloader {
+  position: relative;
+}
+
+.preloader_wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  order: 1;
 }
