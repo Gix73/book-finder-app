@@ -3,8 +3,9 @@ const initialState = {
   booksData: [],
   typeOfSort: "relevance",
   category: "all",
-  page: 1,
+  page: 0,
   totalItems: 0,
+  updateItemsCount: 30,
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -16,6 +17,7 @@ const booksReducer = (state = initialState, action) => {
       search: action.payload.sr,
       booksData: action.payload.data,
       totalItems: action.payload.totalItems,
+      page: action.payload.page,
     };
   }
   if (action.type === "CHANGE_SORT") {
@@ -39,12 +41,12 @@ const booksReducer = (state = initialState, action) => {
       page: action.payload.page,
     };
   }
-  if (action.type === "ADD_PAGE") {
-    return {
-      ...state,
-      page: action.payload.page,
-    };
-  }
+  // if (action.type === "ADD_PAGE") {
+  //   return {
+  //     ...state,
+  //     page: action.payload.page,
+  //   };
+  // }
 
   return state;
 };

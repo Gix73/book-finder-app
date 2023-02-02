@@ -3,7 +3,6 @@ import s from "./BookInfo.module.css";
 
 const BookInfo = () => {
   let data = useLocation();
-  console.log(data);
   return (
     <div className={s.container}>
       <div className={s.img_wrapper}>

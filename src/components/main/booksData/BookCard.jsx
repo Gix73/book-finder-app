@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BookCard = (props) => {
   return (
     <>
-      {props.bookItems.map((e) => {
+      {props.bookItems.map((e, i) => {
         let imgSrc = "";
         let authors = "";
         let title = "";
@@ -29,6 +29,7 @@ const BookCard = (props) => {
           <Link
             to="/bookinfo"
             className={s.hover_link}
+            key={i}
             state={{
               from: "/",
               imgSrc: imgSrc,
