@@ -22,7 +22,7 @@ const BookCard = (props) => {
           title = e.volumeInfo.title;
         }
         if (e.volumeInfo.categories) {
-          categories = e.volumeInfo.categories[0];
+          categories = e.volumeInfo.categories.join(", ");
         }
 
         return (
@@ -44,7 +44,7 @@ const BookCard = (props) => {
                 <img src={imgSrc} className={imgClass} alt="book" />
               </div>
               <div className={s.text_wrapper}>
-                <span className={s.text}>{categories}</span>
+                <span className={s.text}>{categories.split(",")[0]}</span>
                 <h3 className={s.text}>{title}</h3>
                 <span className={s.text}>{authors}</span>
               </div>
