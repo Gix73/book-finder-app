@@ -9,6 +9,7 @@ async function customFetch(
   startInd = 0,
   itemsCount = 30
 ) {
+  if (!search) return false;
   let subj = category !== "all" ? `subject:${category}` : "";
 
   let answ = await new Promise((resolve, reject) => {
@@ -18,7 +19,7 @@ async function customFetch(
       .then((data) => {
         resolve(data.json());
       })
-      .catch((err) => console.log(err));
+      .catch((err) => reject(err));
   });
   return answ;
 }
